@@ -1,0 +1,60 @@
+Creative content license
+========================
+
+The original photographs in `src/assets/photography/`, the poetry and prose in
+`src/levels/zine.ts`, and the original procedural environment and effects
+artwork are:
+
+    © 2026 Yunhao Luo — licensed under
+    Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+    International (CC BY-NC-ND 4.0).
+    https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+You may share that material with attribution, for non-commercial purposes,
+without modification. All other rights are reserved.
+
+Competition-edition assets
+--------------------------
+
+The anonymous pixel identicon, the nonrepresentational redaction mosaics in
+`src/assets/mods/redacted/`, and the redacted publication preview were created
+for this competition edition. To the extent copyright subsists in these files,
+they are licensed under Creative Commons Attribution 4.0 International:
+https://creativecommons.org/licenses/by/4.0/
+
+The Mods card and relic mosaics are generated from plain CSS color blocks and
+contain no source artwork.
+
+Authored research material
+---------------------------
+
+The fluid-simulation videos in `src/assets/fluid-simulation/` were produced by
+Yunhao Luo during research at Ubisoft La Forge and are shared with Ubisoft's
+permission. They contain no internal Ubisoft assets.
+
+The Research page identifies the following first-author publication using
+factual bibliographic metadata and an original summary:
+
+    Yunhao Luo, Kaixiang Xie, Sheldon Andrews, and Paul G. Kry. 2021.
+    Catching and Throwing Control of a Physically Simulated Hand.
+    Motion, Interaction and Games (MIG '21).
+    https://doi.org/10.1145/3487983.3488300
+
+The coauthored paper PDF, verbatim abstract, and original publication teaser
+are not included. The preview position is occupied by a nonrepresentational
+redaction mosaic, and the page links to the DOI and external author project
+page for readers who want the publication itself.
+
+Third-party fonts
+-----------------
+
+Cinzel, EB Garamond, and Noto Serif SC are distributed under the SIL Open Font
+License 1.1. See `THIRD_PARTY_NOTICES.md` and `OFL-1.1.txt`.
+
+Profile-link marks
+------------------
+
+The GitHub Invertocat and LinkedIn `[in]` marks are used solely as profile
+hyperlinks under their respective brand guidelines. They remain the property
+of their owners and are not covered by this repository's MIT or Creative
+Commons license grants. See `THIRD_PARTY_NOTICES.md`.

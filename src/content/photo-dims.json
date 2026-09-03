@@ -1,0 +1,42 @@
+{
+  "Autumn of Montreal": {
+    "w": 720,
+    "h": 960
+  },
+  "Chicago": {
+    "w": 960,
+    "h": 720
+  },
+  "Harvest": {
+    "w": 960,
+    "h": 720
+  },
+  "McGill Bear": {
+    "w": 960,
+    "h": 640
+  },
+  "On the Road": {
+    "w": 960,
+    "h": 720
+  },
+  "Rest in Botanical Garden": {
+    "w": 720,
+    "h": 960
+  },
+  "Spring of Windsor": {
+    "w": 960,
+    "h": 540
+  },
+  "Summer of Istanbul": {
+    "w": 960,
+    "h": 610
+  },
+  "Winter Joy": {
+    "w": 960,
+    "h": 720
+  },
+  "Winter of Badwater": {
+    "w": 960,
+    "h": 540
+  }
+}

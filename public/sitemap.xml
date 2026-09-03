@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- the site is a single-page app with hash routes; fragments are not
+     indexable URLs, so the root is the one canonical page -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://himeragiyukina.github.io/crepusculum-dream-webmcp/</loc>
+  </url>
+</urlset>

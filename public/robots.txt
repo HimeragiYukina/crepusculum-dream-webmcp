@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /crepusculum-dream-webmcp/
+
+Sitemap: https://himeragiyukina.github.io/crepusculum-dream-webmcp/sitemap.xml

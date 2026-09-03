@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#35252f" />
+  <meta name="description" content="Explore Yunhao Luo's playable HD-2D portfolio by keyboard, mouse, or page-aware WebMCP tools—featuring research, simulation, mods, writing, and photography." />
+  <title>Yunhao Luo — Playable WebMCP Portfolio</title>
+  <meta name="google-site-verification" content="79AHx_qZJGgivSsQJ_ldgqcRBrHxNxdZlD_nFyS4aI8" />
+  <link rel="canonical" href="https://himeragiyukina.github.io/crepusculum-dream-webmcp/" />
+  <!-- social share cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Yunhao Luo — Playable WebMCP Portfolio" />
+  <meta property="og:description" content="Explore an HD-2D portfolio by keyboard, mouse, or page-aware WebMCP tools." />
+  <meta property="og:url" content="https://himeragiyukina.github.io/crepusculum-dream-webmcp/" />
+  <meta property="og:image" content="https://himeragiyukina.github.io/crepusculum-dream-webmcp/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yunhao Luo — Playable WebMCP Portfolio" />
+  <meta name="twitter:description" content="Explore an HD-2D portfolio by keyboard, mouse, or page-aware WebMCP tools." />
+  <meta name="twitter:image" content="https://himeragiyukina.github.io/crepusculum-dream-webmcp/og-image.jpg" />
+  <!-- who this site belongs to, for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://himeragiyukina.github.io/crepusculum-dream-webmcp/#person",
+        "name": "Yunhao Luo",
+        "url": "https://himeragiyukina.github.io/crepusculum-dream-webmcp/",
+        "jobTitle": "AI Researcher",
+        "worksFor": { "@type": "Organization", "name": "Huawei Canada" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "McGill University" },
+        "knowsAbout": ["agentic web", "web agents", "website generation", "agent-friendly web standards", "character animation", "physics-based simulation", "real-time rendering", "GPU fluid simulation"],
+        "sameAs": [
+          "https://github.com/HimeragiYukina",
+          "https://www.linkedin.com/in/yunhao-luo-853b16234/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://himeragiyukina.github.io/crepusculum-dream-webmcp/#website",
+        "name": "Yunhao Luo — Playable WebMCP Portfolio",
+        "url": "https://himeragiyukina.github.io/crepusculum-dream-webmcp/",
+        "description": "A playable HD-2D portfolio explored by keyboard, mouse, or page-aware WebMCP tools.",
+        "author": { "@id": "https://himeragiyukina.github.io/crepusculum-dream-webmcp/#person" }
+      }
+    ]
+  }
+  </script>
+  <!-- Cinzel / EB Garamond are self-hosted via @font-face in style.css -->
+  <link rel="icon" type="image/png" href="/crepusculum-dream-webmcp/favicon-medium-v2.png" />
+</head>
+<body>
+  <!-- static summary for crawlers that don't execute JS (the app itself
+       renders everything below into #app) -->
+  <noscript>
+    <h1>Yunhao Luo — AI Researcher</h1>
+    <p>
+      I am Yunhao Luo, an AI researcher at Huawei Canada's Web Technology Lab. My current research centers
+      on the agentic web: web agents, website generation, and emerging standards for making the web
+      agent-friendly — alongside a foundation in character animation, physics-based simulation, and real-time
+      rendering. I previously researched real-time GPU fluid
+      simulation at Ubisoft La Forge and hold an M.Sc. in Computer Science from McGill University;
+      my thesis work received the Best Presentation Award at MIG '21.
+    </p>
+    <p>
+      This site is a playable HD-2D hub world (it needs JavaScript). Explore it with a keyboard or
+      mouse, or collaborate with an agent through page-aware WebMCP tools. Its areas: Projects
+      (a real-time GPU liquid simulator built at Ubisoft Montreal), Research (the MIG '21 publication
+      "Catching and Throwing Control of a Physically Simulated Hand"), a complete deck-building character mod,
+      a poetry Zine, and About.
+    </p>
+    <p>
+      Elsewhere: <a href="https://github.com/HimeragiYukina">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/yunhao-luo-853b16234/">LinkedIn</a>
+    </p>
+  </noscript>
+  <div id="app">
+    <!-- The active level mounts into #stage -->
+    <div id="stage"></div>
+    <!-- Full-screen fade used for level transitions -->
+    <div id="fader"></div>
+    <!-- Action-RPG-style area-name banner -->
+    <div id="banner"><div id="banner-text"></div><div id="banner-rule"></div></div>
+    <!-- WebMCP status chip -->
+    <div id="mcp-chip" title="">✦ WebMCP</div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Yunhao Luo — Personal Website
+
+> The personal site of Yunhao Luo, an AI researcher focused on the agentic web — web agents, website generation, and emerging standards for making the web agent-friendly — with a foundation in character animation, physics-based simulation, and real-time rendering. The site is shaped like a game: an explorable, dark-fantasy HD-2D hub world ("Crepusculum Dream") where visitors use keyboard, mouse, touch, or WebMCP and each landmark leads to an area of content.
+
+Yunhao Luo is an AI researcher at Huawei Canada's Web Technology Lab. He previously researched real-time GPU fluid simulation at Ubisoft La Forge and holds an M.Sc. in Computer Science from McGill University; his thesis work received the Best Presentation Award at MIG '21.
+
+## WebMCP interface
+
+This site registers WebMCP tools on `document.modelContext`. They operate the same live router and DOM used by the visitor, not a detached content API. Navigation updates the visible area, URL fragment, page metadata, and registered tools together.
+
+`create-portfolio-tour` is the central human-agent collaboration tool. It maps a recruiting, research, technical, creative, or complete-portfolio goal to a visible route panel. The visitor and agent see the same stops; selecting one navigates the real site and focuses the relevant introduction or section.
+
+Tool scopes:
+
+- Global: `list-site-pages`, `get-about-me`, `goto-site-page`, `set-language`, `create-portfolio-tour`
+- Home: `walk-hero-to-landmark`, `get-hero-status`
+- Every content page: `get-page-overview`, `focus-page-section`, re-registered with that page's description, section enum, returned data, and visible effect
+- Projects: `get-fluid-simulation`
+- Research: `get-publications`, `get-citation`, `copy-citation`
+- Mods: `get-mod-details`, `goto_workshop_page`
+- The Zine: `read-zine-piece`
+- About: `get-photography-captions`
+
+## Areas
+
+- [Home](/crepusculum-dream-webmcp/#/): the explorable HD-2D hub world; every landmark below lives here
+- [Projects](/crepusculum-dream-webmcp/#/projects): write-up and captured demos of the real-time GPU liquid simulator built at Ubisoft Montreal using position-based fluids and GPU compute shaders
+- [Research](/crepusculum-dream-webmcp/#/research): first-author publication — Catching and Throwing Control of a Physically Simulated Hand (MIG '21, Best Presentation Award), with an original summary, complete BibTeX, and publication links
+- [Mods](/crepusculum-dream-webmcp/#/mods): a complete deck-building character mod (78 cards, custom mechanics, 2D animation, localization, and upstream links)
+- [Zine](/crepusculum-dream-webmcp/#/zine): a modern-poetry zine, presented as readable pages
+- [About](/crepusculum-dream-webmcp/#/about): bio, interests, photography, and the site's WebMCP tool documentation
+
+## External
+
+- [GitHub](https://github.com/HimeragiYukina)
+- [LinkedIn](https://www.linkedin.com/in/yunhao-luo-853b16234/)
+- [Publication project page](https://profs.etsmtl.ca/sandrews/publication/catchthrow_mig2021/)
