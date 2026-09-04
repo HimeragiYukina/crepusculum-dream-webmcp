@@ -169,6 +169,29 @@ try {
     }
   }
 
+  const initialHighlightCases = [
+    { area: 'projects', goal: 'technical-reviewer' },
+    { area: 'research', goal: 'recruiter' },
+    { area: 'mods', goal: 'recruiter' },
+    { area: 'zine', goal: 'creative-explorer' },
+    { area: 'about', goal: 'recruiter' },
+  ];
+  for (const { area, goal } of initialHighlightCases) {
+    await goToArea(area);
+    await waitForToolCount(area);
+    await call('create-portfolio-tour', { goal });
+    const highlightedTourPages = await page.$$eval(
+      '#portfolio-tour button.is-current',
+      (buttons) => buttons.map((button) => button.dataset.page),
+    );
+    assert.deepEqual(
+      highlightedTourPages,
+      [area],
+      `${goal} tour created on ${area} did not initialize its current-page highlight`,
+    );
+  }
+  console.log('checked initial tour highlights on every content page');
+
   const budgets = await page.evaluate(() => window.__mcp.tools.map((tool) => ({
     name: tool.name,
     nameLength: tool.name.length,
