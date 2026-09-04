@@ -19,7 +19,7 @@ Timestamped implementation evidence is the original repository's [`5acdbc7...505
 - page-specific versions of `get-page-overview` and `focus-page-section`;
 - exclusive structured tools for Projects, Mods, Zine, and About;
 - a Mods-only `goto_workshop_page` action;
-- separate `get-citation` and `copy-citation` responsibilities with paste-ready BibTeX;
+- a read-only `get-citation` result with paste-ready BibTeX, while copying remains an explicit action in the shared page UI;
 - `create-portfolio-tour`, which creates a visible goal-specific route shared by visitor and agent;
 - visible, top-bar-aware centering and highlighting of selected sections;
 - strict schemas, tool titles, cancellation signals, trust/read annotations, and character-budget checks;
@@ -48,7 +48,7 @@ npm run build
 npm run test:webmcp
 ```
 
-The smoke test checks expected tool totals (Home 7, Projects 8, Research 10, Mods 9, Zine 8, About 8), route cleanup, visible tour and section-focus effects, read-only biography behavior, complete BibTeX structure, and name/description/parameter/result budgets.
+The smoke test checks expected tool totals (Home 7, Projects 8, Research 9, Mods 9, Zine 8, About 8), route cleanup, visible tour and section-focus effects, read-only biography behavior, complete BibTeX structure, and name/description/parameter/result budgets.
 
 The interactive surface is tested in OpenAI Codex's WebMCP-capable in-app browser and Google Chrome 152 with WebMCP testing enabled.
 

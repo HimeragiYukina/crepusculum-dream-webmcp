@@ -16,7 +16,7 @@ Tool scopes:
 - Home: `walk-hero-to-landmark`, `get-hero-status`
 - Every content page: `get-page-overview`, `focus-page-section`, re-registered with that page's description, section enum, returned data, and visible effect
 - Projects: `get-fluid-simulation`
-- Research: `get-publications`, `get-citation`, `copy-citation`
+- Research: `get-publications`, `get-citation`
 - Mods: `get-mod-details`, `goto_workshop_page`
 - The Zine: `read-zine-piece`
 - About: `get-photography-captions`

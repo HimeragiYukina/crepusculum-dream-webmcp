@@ -35,12 +35,12 @@ WebMCP tools register through `document.modelContext.registerTool`. They do not 
 | Home | `walk-hero-to-landmark`, `get-hero-status` |
 | Every content page | Page-specific versions of `get-page-overview` and `focus-page-section` |
 | Projects | `get-fluid-simulation` |
-| Research | `get-publications`, `get-citation`, `copy-citation` |
+| Research | `get-publications`, `get-citation` |
 | Mods | `get-mod-details`, `goto_workshop_page` |
 | Zine | `read-zine-piece` |
 | About | `get-photography-captions` |
 
-Expected totals after the mounted page is ready: Home 7, Projects 8, Research 10, Mods 9, Zine 8, About 8.
+Expected totals after the mounted page is ready: Home 7, Projects 8, Research 9, Mods 9, Zine 8, About 8.
 
 ## Challenge-period additions
 
@@ -50,7 +50,7 @@ The portfolio existed before the OpenAI WebMCP Challenge. The latest pre-challen
 | --- | --- |
 | Global, Home, and Research tools | Page-aware registration and exclusive tools for every content area |
 | Mostly off-screen returned data | Visible section focus and a shared goal-specific portfolio tour |
-| Citation reading and clipboard writing combined | Separate read-only `get-citation` and clipboard-writing `copy-citation` |
+| Citation reading and clipboard writing combined | Read-only `get-citation`; copying remains an explicit button in the shared page UI |
 | Basic definitions | Titles, strict schemas, trust/read annotations, cancellation, budgets, and Chrome 149 target |
 | Generic metadata | Playable positioning, route-specific metadata, agent documentation, and repeatable tests |
 

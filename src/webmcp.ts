@@ -18,7 +18,7 @@
  *      · every article page: get-page-overview, focus-page-section (the same
  *        names are re-registered with page-specific descriptions and schemas)
  *      · projects only: get-fluid-simulation
- *      · research only: get-publications, get-citation, copy-citation
+ *      · research only: get-publications, get-citation
  *      · mods only: get-mod-details, goto_workshop_page
  *      · zine only: read-zine-piece
  *      · about only: get-photography-captions
@@ -217,7 +217,6 @@ const PAGE_SCOPED_NAMES = new Set([
   'get-fluid-simulation',
   'get-publications',
   'get-citation',
-  'copy-citation',
   'get-mod-details',
   'goto_workshop_page',
   'read-zine-piece',
@@ -255,7 +254,6 @@ export function describeTools(): ToolDoc[] {
     { name: 'get-fluid-simulation', summary: 'returns test scenes and technical capabilities for the fluid simulator', readOnly: true, scope: 'projects' },
     { name: 'get-publications', summary: 'returns first-author publications as structured JSON', readOnly: true, scope: 'research' },
     { name: 'get-citation', summary: 'returns the complete BibTeX citation without copying it', readOnly: true, scope: 'research' },
-    { name: 'copy-citation', summary: 'copies the complete BibTeX citation to the clipboard', readOnly: false, scope: 'research' },
     { name: 'get-mod-details', summary: 'returns mod statistics, mechanics, and featured cards', readOnly: true, scope: 'mods' },
     { name: 'goto_workshop_page', summary: 'opens the linked Steam Workshop listing', readOnly: false, scope: 'mods' },
     { name: 'read-zine-piece', summary: 'returns one poem or editorial section by id', readOnly: true, scope: 'zine' },
@@ -697,27 +695,6 @@ function registerArticleTools(area: ArticleArea, signal: AbortSignal): void {
         inputSchema: { type: 'object', properties: {}, additionalProperties: false },
         annotations: { readOnlyHint: true, untrustedContentHint: false },
         execute: () => visibleCitation(),
-      },
-      signal,
-    );
-    void register(
-      {
-        name: 'copy-citation',
-        title: 'Copy BibTeX citation',
-        description: "Copy the complete BibTeX citation to the user's clipboard and update the visible Copy confirmation.",
-        inputSchema: { type: 'object', properties: {}, additionalProperties: false },
-        annotations: { readOnlyHint: false, untrustedContentHint: false },
-        execute: async (_p: Record<string, never>, { signal: executionSignal } = {}) => {
-          const citation = visibleCitation();
-          await navigator.clipboard.writeText(citation);
-          throwIfCancelled(executionSignal);
-          const copyButton = articleRoot('research')?.querySelector<HTMLButtonElement>('.bibtex-copy');
-          if (copyButton) {
-            copyButton.textContent = 'Copied';
-            window.setTimeout(() => { copyButton.textContent = 'Copy'; }, 1600);
-          }
-          return 'Copied the visible BibTeX citation to the clipboard.';
-        },
       },
       signal,
     );

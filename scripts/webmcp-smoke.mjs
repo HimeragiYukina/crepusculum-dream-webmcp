@@ -17,7 +17,7 @@ const SITE = `${BASE}/crepusculum-dream-webmcp/`;
 const EXPECTED = {
   home: ['list-site-pages', 'get-about-me', 'goto-site-page', 'set-language', 'create-portfolio-tour', 'walk-hero-to-landmark', 'get-hero-status'],
   projects: ['list-site-pages', 'get-about-me', 'goto-site-page', 'set-language', 'create-portfolio-tour', 'get-page-overview', 'focus-page-section', 'get-fluid-simulation'],
-  research: ['list-site-pages', 'get-about-me', 'goto-site-page', 'set-language', 'create-portfolio-tour', 'get-page-overview', 'focus-page-section', 'get-publications', 'get-citation', 'copy-citation'],
+  research: ['list-site-pages', 'get-about-me', 'goto-site-page', 'set-language', 'create-portfolio-tour', 'get-page-overview', 'focus-page-section', 'get-publications', 'get-citation'],
   mods: ['list-site-pages', 'get-about-me', 'goto-site-page', 'set-language', 'create-portfolio-tour', 'get-page-overview', 'focus-page-section', 'get-mod-details', 'goto_workshop_page'],
   zine: ['list-site-pages', 'get-about-me', 'goto-site-page', 'set-language', 'create-portfolio-tour', 'get-page-overview', 'focus-page-section', 'read-zine-piece'],
   about: ['list-site-pages', 'get-about-me', 'goto-site-page', 'set-language', 'create-portfolio-tour', 'get-page-overview', 'focus-page-section', 'get-photography-captions'],
