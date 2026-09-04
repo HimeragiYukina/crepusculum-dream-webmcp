@@ -229,6 +229,7 @@ let homeAbort: AbortController | null = null;
 let articleAbort: AbortController | null = null;
 let articleArea: ArticleArea | null = null;
 let registeredNames: string[] = [];
+let activeTourCleanup: (() => void) | null = null;
 
 export type ToolDocScope = 'global' | 'home' | 'content' | ArticleArea;
 
@@ -263,6 +264,8 @@ export function describeTools(): ToolDoc[] {
 
 function createPortfolioTour(goal: TourGoal, router: Router): string {
   const plan = TOUR_PLANS[goal];
+  activeTourCleanup?.();
+  activeTourCleanup = null;
   document.getElementById('portfolio-tour')?.remove();
 
   const panel = document.createElement('aside');
@@ -281,7 +284,6 @@ function createPortfolioTour(goal: TourGoal, router: Router): string {
   close.className = 'tour-close';
   close.type = 'button';
   close.setAttribute('aria-label', 'Close portfolio tour');
-  close.addEventListener('click', () => panel.remove());
   header.append(headingGroup, close);
 
   const introduction = document.createElement('p');
@@ -294,16 +296,28 @@ function createPortfolioTour(goal: TourGoal, router: Router): string {
   status.textContent = `Shared page: ${router.current?.id ?? 'home'}. Choose a stop to continue.`;
 
   const buttons: HTMLButtonElement[] = [];
-  let markedCurrentPage = false;
+  const syncTourLocation = (pageId: string, preferredButton?: HTMLButtonElement) => {
+    const preferredIsOnPage = preferredButton?.dataset.page === pageId;
+    const currentButton = preferredIsOnPage
+      ? preferredButton
+      : buttons.find((_, index) => plan.steps[index].page === pageId);
+    buttons.forEach((candidate) => {
+      const isCurrent = candidate === currentButton;
+      candidate.classList.toggle('is-current', isCurrent);
+      if (isCurrent) candidate.setAttribute('aria-current', 'page');
+      else candidate.removeAttribute('aria-current');
+    });
+    status.textContent = currentButton
+      ? `Shared page: ${pageId}. ${currentButton.querySelector('strong')?.textContent ?? 'This stop'} is current.`
+      : `Shared page: ${pageId}. No stop on this route is current.`;
+  };
+
   for (const [index, step] of plan.steps.entries()) {
     const item = document.createElement('li');
     const button = document.createElement('button');
     button.type = 'button';
+    button.dataset.page = step.page;
     button.innerHTML = `<span class="tour-number">${index + 1}</span><span><strong>${step.label}</strong><small>${step.reason}</small></span>`;
-    if (!markedCurrentPage && router.current?.id === step.page) {
-      button.classList.add('is-current');
-      markedCurrentPage = true;
-    }
     button.addEventListener('click', async () => {
       status.textContent = `Opening ${step.label}…`;
       const currentPage = router.current?.id ?? 'home';
@@ -315,8 +329,7 @@ function createPortfolioTour(goal: TourGoal, router: Router): string {
           return;
         }
       }
-      buttons.forEach((candidate) => candidate.classList.remove('is-current'));
-      button.classList.add('is-current');
+      syncTourLocation(router.current?.id ?? currentPage, button);
       if (step.page !== 'home') {
         // Give a newly arrived visitor the page's own introduction before
         // jumping deeper. Selecting the stop again focuses its exact section.
@@ -330,6 +343,18 @@ function createPortfolioTour(goal: TourGoal, router: Router): string {
     item.appendChild(button);
     list.appendChild(item);
   }
+
+  const unsubscribe = router.onChange((pageId) => syncTourLocation(pageId));
+  const cleanup = () => {
+    unsubscribe();
+    if (activeTourCleanup === cleanup) activeTourCleanup = null;
+  };
+  activeTourCleanup = cleanup;
+  close.addEventListener('click', () => {
+    cleanup();
+    panel.remove();
+  });
+  syncTourLocation(router.current?.id ?? 'home');
 
   panel.append(header, introduction, list, status);
   document.getElementById('app')?.appendChild(panel);

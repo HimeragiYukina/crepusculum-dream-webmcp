@@ -35,8 +35,12 @@ export class Router {
   }
 
   /** Subscribe to area changes; fired after the new level has mounted. */
-  onChange(cb: (id: string) => void): void {
+  onChange(cb: (id: string) => void): () => void {
     this.changeListeners.push(cb);
+    return () => {
+      const index = this.changeListeners.indexOf(cb);
+      if (index >= 0) this.changeListeners.splice(index, 1);
+    };
   }
 
   idFromHash(): string {

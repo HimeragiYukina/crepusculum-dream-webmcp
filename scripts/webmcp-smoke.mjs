@@ -130,13 +130,24 @@ try {
 
   await call('create-portfolio-tour', { goal: 'technical-reviewer' });
   assert.equal((await page.$$('#portfolio-tour')).length, 1, 'portfolio tour was not rendered');
+  assert.equal((await page.$$('#portfolio-tour .is-current')).length, 0, 'tour highlighted a stop while home is outside this route');
   console.log('checked visible tour');
 
   const results = { home: EXPECTED.home.length };
+  const technicalTourPages = new Set(['projects', 'research', 'mods']);
   for (const area of ['projects', 'research', 'mods', 'zine', 'about']) {
     await goToArea(area);
     await waitForToolCount(area);
     await assertRoute(area);
+    const highlightedTourPages = await page.$$eval(
+      '#portfolio-tour button.is-current',
+      (buttons) => buttons.map((button) => button.dataset.page),
+    );
+    assert.deepEqual(
+      highlightedTourPages,
+      technicalTourPages.has(area) ? [area] : [],
+      `tour highlight did not follow WebMCP navigation to ${area}`,
+    );
     results[area] = EXPECTED[area].length;
     console.log(`checked ${area}`);
 
