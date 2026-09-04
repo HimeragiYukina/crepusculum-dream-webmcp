@@ -104,7 +104,7 @@ try {
   await page.screenshot({ path: `${OUTPUT}/gallery-tour.png` });
 
   await open(page, '#/research', true);
-  await page.waitForFunction(() => window.__mcp?.tools?.length === 10);
+  await page.waitForFunction(() => window.__mcp?.tools?.length === 9);
   await page.screenshot({ path: `${OUTPUT}/gallery-research.png` });
 
   await open(page, '#/mods', true);
